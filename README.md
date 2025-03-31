@@ -1,10 +1,17 @@
-# README Template
+# IBM Recommendation System
 
-Below is a template provided for use when building your README file for students.
+This project builds a Recommendation System for IBM's community platform. The goal is to suggest relevant articles to users based on using 3 different recommendation systems.
+1) **Popularity-Based Recommendations**
 
-# Project Title
+Used for new users who have no reading history to base recommendations on. This approach simply recommends the most popular articles, typically measured by the highest number of views or interactions, ensuring that new users are presented with widely appreciated content.
 
-Project description goes here.
+2) **User-user collaborative recommendations**
+
+Articles read by users who have similar reading patterns to our target user are recommended. In this method, cosine similarity is used to identify users with similar interests. We rank these users by similarity scores, review their article lists, and filter out articles that the target user has already read. This method helps in discovering articles that are popular among like-minded users, thus enhancing the recommendation's relevance.
+
+3) **Content-based recommendations**
+
+Articles similar to those a user has historically engaged with are suggested, utilizing advanced NLP techniques. The process starts with the creation of article vectors using a TF-IDF vectorizer, followed by dimensionality reduction via Latent Semantic Analysis (LSA) with Truncated SVD. To ensure optimal clustering, we apply the elbow method to determine the best number of clusters (k) and then use k-means clustering to group similar articles. This clustering helps in recommending articles that are content-wise similar to those the user prefers.
 
 ## Getting Started
 
@@ -13,43 +20,30 @@ Instructions for how to get a copy of the project running on your local machine.
 ### Dependencies
 
 ```
-Examples here
+Python 3.11
+Jupyter Notebook
+Pandas
+NumPy
+Scikit-learn
+Matplotlib
+Seaborn
 ```
 
 ### Installation
 
-Step by step explanation of how to get a dev environment running.
+To set up the environment and run the project, follow these steps:
 
-List out the steps
-
+1) Clone this repository
 ```
-Give an example here
+cd path/to/your/directory
+git clone https://github.com/fraser-code/IBM-Watson-Content-Recommendation-Systems
 ```
+2) Open the Jupyter Notebook
 
-## Testing
-
-Explain the steps needed to run any automated tests
-
-### Break Down Tests
-
-Explain what each test does and why
-
-```
-Examples here
-```
-
-## Project Instructions
-
-This section should contain all the student deliverables for this project.
+3) Run all cells
 
 ## Built With
 
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
-
-Include all items used to build project.
-
-## License
-
-[License](LICENSE.txt)
+* [Pandas](https://pandas.pydata.org/) - Data Manipulation
+* [Scikit-learn](https://scikit-learn.org/) - Machine Learning Algorithms
+* [Matplotlib](https://matplotlib.org/) & [Seaborn](https://seaborn.pydata.org/)- Data Visualisation
